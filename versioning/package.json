@@ -1,0 +1,30 @@
+{
+  "name": "project_name",
+  "version": "1.0.0",
+  "license": "UNLICENSED",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc . --watch",
+    "cy:open": "cypress open --e2e --browser chrome",
+    "cy:run": "cypress run --browser chrome --quiet",
+    "cy:spec": "yarn run cy:run --spec",
+    "format": "prettier . --list-different",
+    "format:ci": "prettier --check .",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "@types/node": "^16.11.7",
+    "@prettier/plugin-ruby": "^3.1.2",
+    "cypress": "^10.8.0",
+    "dotenv": "^10.0.0",
+    "eslint": "^8.22.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-cypress": "^2.12.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.7.1",
+    "typescript": "^4.4.4"
+  }
+}

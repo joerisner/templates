@@ -1,0 +1,75 @@
+# I use the prettier/plugin-ruby Node package with my Ruby-related projects. Many of the rules
+#  in this file are simply a copy/paste of that packages .rubocop.yml file rather than using
+#  RuboCop's inherited_from feature. This is intentional because not all of my Ruby projects use Node.
+#  For projects that have node_modules included, remove the duplicate rules from this file and
+#  uncomment this line.
+# inherit_from:
+#   - node_modules/@prettier/plugin-ruby/rubocop.yml
+
+AllCops:
+  NewCops: enable
+
+# Disabling all Layout/* rules, as they're unnecessary when using the
+# Syntax Tree gem (dependency of prettier) to handle all of the formatting.
+Layout:
+  Enabled: false
+
+# Re-enable Layout/LineLength because certain cops that most projects use
+# (e.g. Style/IfUnlessModifier) require Layout/LineLength to be enabled.
+# By leaving it disabled, those rules will mis-fire, when used w/ prettier.
+Layout/LineLength:
+  Enabled: true
+
+Style/MultilineIfModifier:
+  Enabled: false
+
+# Syntax Tree gem will expand empty methods to put the end keyword on the subsequent
+# line to reduce git diff noise.
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+
+# Lambdas that are constructed with the lambda method call cannot be safely
+# turned into lambda literals using prettier without removing a method call.
+Style/Lambda:
+  Enabled: false
+
+# When method chains with multiple blocks are chained together, rubocop will let
+# them pass if they're using braces but not if they're using do and end
+# keywords. Because prettier will break individual blocks down to using keywords if
+# they are multiline, this conflicts with rubocop.
+Style/MultilineBlockChain:
+  Enabled: false
+
+# Disable the single- vs double-quotes rules as these depend on whether the project
+# has added `plugin/single_quotes` for `syntax_tree` using prettier.
+Style/StringLiterals:
+  Enabled: false
+
+Style/StringLiteralsInInterpolation:
+  Enabled: false
+
+Style/QuotedSymbols:
+  Enabled: false
+
+# Prettier allows for a little more freedom with symbol and words arrays. If there is
+# an individual item like ["value"] then prettier doesn't bother converting
+# it because it ends up being just noise.
+Style/SymbolArray:
+  Enabled: false
+
+# Disable the trailing-comma rules as these depend on whether the `plugin/trailing_comma`
+# has been added for `syntax_tree`
+Style/TrailingCommaInArguments:
+  Enabled: false
+Style/TrailingCommaInArrayLiteral:
+  Enabled: false
+Style/TrailingCommaInHashLiteral:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/RedundantFetchBlock:
+  Enabled: false # Hash#fetch w/ block is faster than fetch w/ second arg
+Style/WordArray:
+  Enabled: false

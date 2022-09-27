@@ -1,0 +1,17 @@
+{
+  "bracketSpacing": true,
+  "endOfLine": "auto",
+  "overrides": [{
+    "files": ["*.css"],
+    "options": {
+      "singleQuote": false
+    }
+  }],
+  "printWidth": 120,
+  "rubyPlugins": "plugin/single_quotes,plugin/trailing_comma",
+  "semi": true,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "trailingComma": "all",
+  "useTabs": false
+}

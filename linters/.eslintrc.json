@@ -1,0 +1,14 @@
+{
+  // https://eslint.org/docs/user-guide/configuring/configuration-files#extending-configuration-files
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:cypress/recommended",
+    "prettier"
+  ],
+  // "output/" is Bridgetown-specific
+  "ignorePatterns": ["output/"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["cypress", "prettier"]
+}

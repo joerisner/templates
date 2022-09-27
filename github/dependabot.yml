@@ -1,0 +1,22 @@
+version: 2
+updates:
+  # Node Packages
+  - package-ecosystem: npm
+    directory: "/"
+    # Adding labels is unnecessary on projects that are paired with Mergify as
+    # label management is handled with that tool instead.
+    labels:
+      - dependencies
+    open-pull-requests-limit: 10
+    schedule:
+      interval: weekly
+  # Gems
+  - package-ecosystem: bundler
+    directory: "/"
+    # Adding labels is unnecessary on projects that are paired with Mergify as
+    # label management is handled with that tool instead.
+    labels:
+      - dependencies
+    open-pull-requests-limit: 10
+    schedule:
+      interval: weekly

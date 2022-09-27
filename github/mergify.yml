@@ -1,0 +1,27 @@
+pull_request_rules:
+  - name: Automatic merge for dependabot PRs
+    conditions:
+      - author~=^dependabot(|-preview)\[bot\]$
+      - base=master
+      # Assuming there are two Github Action JOBS (not workflows) titled "lint" and "test".
+      # See more info here: https://docs.mergify.com/conditions/#github-actions
+      - check-success=lint
+      - check-success=test
+      - title~=^Bump [^\s]+ from ([\d]+)\..+ to \1\.
+    actions:
+      merge:
+        method: merge
+  - name: Add depencies label when package.json or Gemfile is modified
+    conditions:
+      - files~=^(package.json|Gemfile)
+    actions:
+      label:
+        add:
+          - dependencies
+  - name: Automatic merge on approval
+    conditions:
+      - base=master
+      - "#approved-reviews-by>1"
+    actions:
+      merge:
+        method: merge

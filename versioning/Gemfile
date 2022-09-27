@@ -1,0 +1,66 @@
+source 'https://rubygems.org'
+git_source(:github) { |repo| 'https://github.com/#{repo}.git' }
+
+##########################
+####### Rails Gems #######
+##########################
+ruby '3.1.2'
+gem 'rails', '~> 7.0.4'
+
+gem 'bootsnap', require: false
+gem 'figaro'
+gem 'foreman' # Only necessary when project requires a Procfile
+gem 'importmap-rails'
+gem 'jbuilder'
+gem 'pg'
+gem 'puma'
+gem 'sprockets-rails'
+gem 'stimulus-rails'
+gem 'tailwindcss-rails'
+gem 'turbo-rails'
+gem 'tzinfo-data', platforms: %i[ mingw mswin x64_mingw jruby ]
+
+group :development, :test do
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'factorybot-rails'
+  gem 'prettier_print' # Required for prettier/plugin-ruby >= 3.x.x
+  gem 'rubocop', require: false
+  gem 'rspec-rails'
+  gem 'syntax_tree' # Required for prettier/plugin-ruby >= 3.x.x
+  gem 'syntax_tree-haml' # Required for prettier/plugin-ruby >= 3.x.x
+  gem 'syntax_tree-rbs' # Required for prettier/plugin-ruby >= 3.x.x
+end
+
+group :development do
+  gem 'web-console'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'faker'
+  gem 'selenium-webdriver'
+  gem 'shoulda-callback-matchers'
+  gem 'shoulda-matchers'
+  gem 'webdrivers'
+end
+
+##############################
+####### Brigetown Gems #######
+##############################
+
+# If you need to upgrade/switch Bridgetown versions, change the line below
+# and then run `bundle update bridgetown`
+gem 'bridgetown'
+gem 'puma'
+
+group :development do
+  gem 'prettier_print' # Required for prettier/plugin-ruby >= 3.x.x
+  gem 'syntax_tree' # Required for prettier/plugin-ruby >= 3.x.x
+  gem 'syntax_tree-haml' # Required for prettier/plugin-ruby >= 3.x.x
+  gem 'syntax_tree-rbs' # Required for prettier/plugin-ruby >= 3.x.x
+end
+
+group :development, :test do
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'rubocop', require: false
+end
