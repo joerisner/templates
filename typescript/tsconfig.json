@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
+    "baseUrl": "./src",
     "esModuleInterop": true,
-    "lib": ["ES6", "DOM"],
+    "lib": ["ES6", "DOM", "ES2017"],
     "module": "esnext",
     "moduleResolution": "node",
     "noEmitOnError": true,
@@ -12,7 +13,7 @@
     "rootDir": "./src",
     "strict": true,
     "target": "ES6",
-    "types": []
+    "types": ["cypress", "node"]
   },
   "exclude": ["./node_modules"]
 }
