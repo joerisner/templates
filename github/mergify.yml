@@ -1,5 +1,5 @@
 pull_request_rules:
-  - name: Automatic merge for dependabot PRs
+  - name: Merge dependabot PRs automatically
     conditions:
       - author~=^dependabot(|-preview)\[bot\]$
       - base=master
@@ -11,17 +11,19 @@ pull_request_rules:
     actions:
       merge:
         method: merge
-  - name: Add depencies label when package.json or Gemfile is modified
-    conditions:
-      - files~=^(package.json|Gemfile)
-    actions:
-      label:
-        add:
-          - dependencies
-  - name: Automatic merge on approval
+  - name: Merge on approval automatically
     conditions:
       - base=master
+      - check-success=lint
+      - check-success=test
       - "#approved-reviews-by>1"
     actions:
       merge:
         method: merge
+  - name: Add dependencies label when package.json is modified
+    conditions:
+      - files=package.json
+    actions:
+      label:
+        add:
+          - dependencies

@@ -2,5 +2,8 @@
 .bridgetown-cache
 frontend/styles/jit-refresh.css
 frontend/styles/syntax-highlighting.css
-output
-vendor
+output/
+vendor/
+
+# Astro
+dist/

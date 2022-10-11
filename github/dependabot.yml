@@ -2,7 +2,7 @@ version: 2
 updates:
   # Node Packages
   - package-ecosystem: npm
-    directory: "/"
+    directory: /
     # Adding labels is unnecessary on projects that are paired with Mergify as
     # label management is handled with that tool instead.
     labels:
@@ -12,7 +12,7 @@ updates:
       interval: weekly
   # Gems
   - package-ecosystem: bundler
-    directory: "/"
+    directory: /
     # Adding labels is unnecessary on projects that are paired with Mergify as
     # label management is handled with that tool instead.
     labels:

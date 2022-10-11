@@ -10,7 +10,7 @@
     "cy:run": "cypress run --browser chrome --quiet",
     "cy:spec": "yarn run cy:run --spec",
     "format": "prettier . --list-different",
-    "format:ci": "prettier --check .",
+    "format:ci": "prettier . --check",
     "lint": "eslint ."
   },
   "devDependencies": {
