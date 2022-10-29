@@ -9,13 +9,13 @@ I use the following tools for managing language and library versions:
 ## .nvmrc
 
 - Root level of project
-- Config file for `nvm` declaring the Node version for the project
+- Config file for `nvm` declaring the latest LTS Node version for the project
 - Changing the Node version used in the project is as simple as updating this file and anywhere else in the project where the Node version is referenced (CI workflows for example)
 
 ## .ruby-version
 
 - Root level of project
-- Config file for `rbenv` (and other rb version managers) declaring the Ruby version for the project
+- Config file for `rbenv` (and other Ruby version managers) declaring the Ruby version for the project
 - Changing the Ruby version used in the project is as simple as updating this file and anywhere else in the project where the Ruby version is referenced (CI workflows for example)
 
 ## Gemfile
@@ -28,4 +28,4 @@ I use the following tools for managing language and library versions:
 - Root level of project
 - The `package.json` included in this project makes a couple of assumptions. It assumes I'm using [Cypress](https://www.cypress.io/) as a testing tool for end-to-end tests, and also that I'm storing environment variables in a `.env` file. These can be removed when those aren't necessary for the project.
 - Another thing to note is that some of the scripts can be removed if those same scripts are duplicated somewhere else. For example, a Rake task that performs the same task.
-- Also, all of the dependencies are simply `devDependencies` in the template. In most cases, some of those packages could be moved to `dependencies` instead.
+- Also, all of the dependencies are simply `devDependencies` in the template. In most cases, I'm going to deploy a built version of the application I'm working on, or just not require dependencies in production. If that ever needs to change on a project-by-project basis, just add/move the dependency to `dependencies` instead.
